@@ -1,0 +1,81 @@
+@use "./variables.scss" as *;
+@use "./mixins.scss" as *;
+
+.dashboardLayout {
+  .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+
+  .logoSection {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbarSearchContainer {
+      position: relative;
+      input {
+        border-radius: 0.5rem;
+        width: 25rem;
+      }
+      .searchIcon {
+        background: $primaryColor;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        padding: 0.5rem;
+        border-radius: 0 0.5rem 0.5rem 0;
+        cursor: pointer;
+        width: 3.5rem;
+        @include flex-center;
+      }
+    }
+
+  .profileSection {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    a {
+      color: #213f7d;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    img {
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      span {
+        font-weight: 600;
+        color: #213f7d;
+      }
+    }
+  }
+}
+
+.dashboardBody {
+    @include flex-component;
+     // 80px navbar height
+    
+    
+  }
+
+  .dashboardInner {
+    flex: 1;
+    background-color: #f5f6fa;
+    padding: 2rem;
+  }
+
+}

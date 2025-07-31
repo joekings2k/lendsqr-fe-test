@@ -1,0 +1,80 @@
+@use "./variables.scss" as *;
+@use "./mixins.scss" as *;
+
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  height: 100%;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  padding: 2rem 0rem;
+  border-right: 1px solid $borderColor;
+
+  @include flex-column;
+  gap: 2rem;
+
+  .top {
+    @include flex-column;
+    gap: 1rem;
+  }
+
+  .switchOrg {
+    @include flex-center;
+    background: none;
+    border: none;
+    color: $secondaryColor;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    gap: 0.5rem;
+
+    span {
+      
+      text-align: left;
+    }
+  }
+
+  .navItem {
+    @include flex-y-center;
+    gap: 1rem;
+    padding: 0.75rem 0rem;
+    color: $mutedColor;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+    padding-left:1.9rem ;
+
+
+    &:hover {
+      background-color: #f3fcfc;
+      color: $secondaryColor;
+    }
+
+    &.active {
+      background-color: #f3fcfc;
+      border-left: 3px solid $primaryColor;
+      color: $secondaryColor;
+    }
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .navGroup {
+    @include flex-column;
+    gap: 0.25rem;
+
+    .sectionTitle {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: $mutedColor;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      padding-left: 1.9rem;
+    }
+  }
+}

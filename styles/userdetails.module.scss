@@ -1,0 +1,48 @@
+@use "./variables.scss" as *;
+@use "./mixins.scss" as *;
+
+.userdetails {
+  .userdetailsHeader{
+    @include flex-column;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 2rem;
+    .backButton{
+      @include flex-component;
+      gap: 0.5rem;
+      cursor: pointer;
+      color: $mutedColor;
+      p{
+        font-size: 0.875rem;
+      }
+    }
+    .userdetailsHeaderBottom{
+      @include flex-between;
+      gap: 1rem;
+      h1{
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $secondaryColor;
+      }
+      .userdetailsHeaderBottomButtons{
+        @include flex-center;
+        gap: 1rem;
+        button{
+          border-radius: 0.5rem;
+          width: 9rem;
+        }
+        .blacklistButton{
+          background: transparent;
+          color: $dangerColor;
+          border: 1px solid $dangerColor ;
+        }
+        .activateButton{
+          background: transparent;
+          color: $primaryColor;
+          border: 1px solid $primaryColor
+        }
+      }
+    }
+  }
+
+}

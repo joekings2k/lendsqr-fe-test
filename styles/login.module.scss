@@ -1,0 +1,82 @@
+@use "./variables.scss" as *;
+@use "./mixins.scss" as *;
+
+.login {
+  height: 100%;
+  @include flex-component;
+  .imgScreen {
+    width: 50%;
+    height: 100%;
+    background-color: $backgroundSecondary;
+
+    .imgScreenContainer {
+      height: 100%;
+      @include flex-x-center;
+      padding: 6.6rem 0;
+      .imgscreeninner {
+        display: flex;
+        gap: 10rem;
+        flex-direction: column;
+      }
+    }
+  }
+  .formscreen {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    .formScreenMainContainer {
+      @include flex-center;
+      height: 100%;
+
+      .formScreenInner {
+        @include flex-column;
+        gap: 3.7rem;
+        width: 30rem;
+        h1 {
+          font-size: 2.5rem;
+          font-weight: 600;
+          color: $secondaryColor;
+        }
+        p {
+          font-size: 1.2rem;
+          font-weight: 400;
+          color: $mutedColor;
+        }
+
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+
+          .passwordFeildContainer {
+            position: relative;
+            .showPassword {
+              position: absolute;
+              right: 1rem;
+              top: 1rem;
+              cursor: pointer;
+              color: $primaryColor;
+            }
+          }
+          p {
+            text-align: left;
+            .link {
+              color: $primaryColor;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include respond(phone) {
+    flex-direction: column;
+    .imgScreen {
+      width: 100%;
+      display: none;
+    }
+    .formscreen {
+      width: 100%;
+    }
+  }
+}
