@@ -20,3 +20,13 @@ export interface UserInfo {
   dateJoined: string;
   status: string;
 }
+
+export interface UserDetailItem {
+  label: string;
+  value: string;
+}
+
+export interface UserDetailSection {
+  section: string;
+  data: UserDetailItem[];
+}

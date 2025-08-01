@@ -53,3 +53,5 @@ export {default as CalendarIcon } from "./calender.svg"
 
 //user detaisl page icons
 export {default as BackIcon } from "./goback.svg"
+
+export {default as UserprofileimgIcon } from "./userprofileimg.svg"

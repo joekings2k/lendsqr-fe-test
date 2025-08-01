@@ -18,7 +18,7 @@ import {
   UserIcon,
   WhitelistIcon,
 } from "@/assets/svgs";
-import { SidebarItems, UserInfo } from "./types";
+import { SidebarItems, UserDetailSection, UserInfo } from "./types";
 
 export const sidebarItems: SidebarItems = [
   {
@@ -200,4 +200,49 @@ export const tableHeaders: string[] = [
   "Phone Number",
   "Date Joined",
   "Status",
+];
+
+export const userDetails: UserDetailSection[] = [
+  {
+    section: "Personal Information",
+    data: [
+      { label: "FULL NAME", value: "Grace Effiom" },
+      { label: "PHONE NUMBER", value: "07060780922" },
+      { label: "EMAIL ADDRESS", value: "grace@gmail.com" },
+      { label: "BVN", value: "07060780922" },
+      { label: "GENDER", value: "Female" },
+      { label: "MARITAL STATUS", value: "Single" },
+      { label: "CHILDREN", value: "None" },
+      { label: "TYPE OF RESIDENCE", value: "Parent's Apartment" },
+    ],
+  },
+  {
+    section: "Education and Employment",
+    data: [
+      { label: "LEVEL OF EDUCATION", value: "B.Sc" },
+      { label: "EMPLOYMENT STATUS", value: "Employed" },
+      { label: "SECTOR OF EMPLOYMENT", value: "FinTech" },
+      { label: "DURATION OF EMPLOYMENT", value: "2 years" },
+      { label: "OFFICE EMAIL", value: "grace@lendsqr.com" },
+      { label: "MONTHLY INCOME", value: "N200,000.00 - N400,000.00" },
+      { label: "LOAN REPAYMENT", value: "40,000" },
+    ],
+  },
+  {
+    section: "Socials",
+    data: [
+      { label: "TWITTER", value: "@grace_effiom" },
+      { label: "FACEBOOK", value: "Grace Effiom" },
+      { label: "INSTAGRAM", value: "@grace_effiom" },
+    ],
+  },
+  {
+    section: "Guarantor",
+    data: [
+      { label: "FULL NAME", value: "Debby Ogana" },
+      { label: "PHONE NUMBER", value: "07060780922" },
+      { label: "EMAIL ADDRESS", value: "debby@gmail.com" },
+      { label: "RELATIONSHIP", value: "Sister" },
+    ],
+  },
 ];
