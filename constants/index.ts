@@ -143,54 +143,41 @@ export const sidebarItems: SidebarItems = [
 
 export const users: UserInfo[] = [
   {
+    id: 1,
     organization: "Lendsqr",
     username: "johndoe",
     email: "john@example.com",
-    phone: "08012345678",
-    dateJoined: "May 15, 2023",
+    phoneNumber: "08012345678",
+    createdAt: "May 15, 2023",
     status: "Active",
   },
   {
+    id: 2,
     organization: "Irorun",
     username: "janedoe",
     email: "jane@example.com",
-    phone: "08098765432",
-    dateJoined: "Jun 01, 2023",
+    phoneNumber: "08098765432",
+    createdAt: "Jun 01, 2023",
     status: "Pending",
   },
   {
+    id: 3,
     organization: "Lendsqr",
     username: "johndoe",
     email: "john@example.com",
-    phone: "08012345678",
-    dateJoined: "May 15, 2023",
+    phoneNumber: "08012345678",
+    createdAt: "May 15, 2023",
     status: "Active",
   },
   {
+    id: 4,
     organization: "Irorun",
     username: "janedoe",
     email: "jane@example.com",
-    phone: "08098765432",
-    dateJoined: "Jun 01, 2023",
+    phoneNumber: "08098765432",
+    createdAt: "Jun 01, 2023",
     status: "Pending",
   },
-  {
-    organization: "Lendsqr",
-    username: "johndoe",
-    email: "john@example.com",
-    phone: "08012345678",
-    dateJoined: "May 15, 2023",
-    status: "Active",
-  },
-  {
-    organization: "Irorun",
-    username: "janedoe",
-    email: "jane@example.com",
-    phone: "08098765432",
-    dateJoined: "Jun 01, 2023",
-    status: "Pending",
-  },
-  // Add more
 ];
 
 export const tableHeaders: string[] = [
@@ -245,4 +232,11 @@ export const userDetails: UserDetailSection[] = [
       { label: "RELATIONSHIP", value: "Sister" },
     ],
   },
+];
+
+
+export const showingOptions = [
+  { label: "100", value: 100 },
+  { label: "50", value: 50 },
+  { label: "25", value: 25 },
 ];

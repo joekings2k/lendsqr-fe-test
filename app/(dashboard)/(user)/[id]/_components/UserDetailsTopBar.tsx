@@ -1,23 +1,37 @@
 import { UserprofileimgIcon } from '@/assets/svgs'
 import React from 'react'
 import styles from '@/styles/userdetails.module.scss'
-function UserDetailsTopBar() {
+import { User } from '@/constants/types'
+import { getUserFullName } from '@/helper'
+
+function UserDetailsTopBar({ user }: { user: User }) {
   return (
     <div className={styles.userdetailsTopBar}>
       <div className={styles.userDetailsTopBarContainer}>
         <div className={styles.userMainInfo}>
           <div className={styles.userdetailsIcon}>
-            <UserprofileimgIcon width={28} height={28} />
+            {
+              user.profile.avatar ? (
+                <img src={user.profile.avatar} alt="User Avatar" />
+              ) : (
+                <UserprofileimgIcon width={28} height={28} />
+              )
+            }
+            
+            
           </div>
           <div className={styles.nameSection}>
-            <p className={styles.name}>Grace Effiom</p>
-            <p className={styles.id}>LSQFf587g90</p>
+            <p className={styles.name}>{getUserFullName(user)}</p>
+            <p className={styles.id}>{user.id}</p>
           </div>
         </div>
 
         <div className={styles.userTier}>
           <p>User’s Tier</p>
           <div className={styles.stars}>
+            {/* {Array.from({ length: user.profile.}, (_, index) => (
+              <span key={index}>⭐</span>
+            ))} */}
             <span>⭐</span>
             <span>⭐</span>
             <span>☆</span>
@@ -25,8 +39,8 @@ function UserDetailsTopBar() {
         </div>
 
         <div className={styles.accountInfo}>
-          <p className={styles.balance}>₦200,000.00</p>
-          <p className={styles.accountNumber}>9912345678 / Providus Bank</p>
+          <p className={styles.balance}>{user?.account.balance}</p>
+          <p className={styles.accountNumber}>{user.account.accountNumber} / {user.account.bankName}</p>
         </div>
       </div>
 

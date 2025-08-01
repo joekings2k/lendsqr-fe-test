@@ -6,26 +6,31 @@ import {
   VerticalDotsIcons,
   ViewIcon,
 } from "@/assets/svgs";
-import { UserInfo } from "@/constants/types";
+import { User, UserInfo } from "@/constants/types";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "@/styles/users.module.scss";
 import DropdownPortal from "@/components/portal/DropdownPortal";
 import { tableHeaders } from "@/constants";
 import Filtercomponent from "./Filtercomponet";
 import { useRouter } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
 
 interface TableProps {
-  data: UserInfo[];
+  data?: Partial<User>[];
+  currentPage: number;
+  itemsPerPage: number;
 }
 
-function UsersTable({ data }: TableProps) {
-  const router = useRouter()
+function UsersTable({ data = [], currentPage, itemsPerPage }: TableProps) {
+  const router = useRouter();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
   const iconRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  console.log(isFilterOpen)
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
 
   const handleToggle = (index: number) => {
     if (openIndex === index) {
@@ -59,15 +64,15 @@ function UsersTable({ data }: TableProps) {
 
     if (openIndex !== null) {
       document.addEventListener("mousedown", handleClickOutside);
-      
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [openIndex]);
-
+console.log(startIndex, endIndex);
   return (
+
     <>
       <div className={styles.tableWrapper}>
         <table className={styles.table}>
@@ -75,50 +80,55 @@ function UsersTable({ data }: TableProps) {
             <tr>
               {tableHeaders.map((header, idx) => (
                 <th key={idx}>
-                  <div className={styles.tableHead} onClick={(e)=>{
-                    e.stopPropagation();
-                    setIsFilterOpen(!isFilterOpen);
-                  }} >
+                  <div
+                    className={styles.tableHead}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsFilterOpen(!isFilterOpen);
+                    }}
+                  >
                     <p>{header}</p>
-                    <FilterIcon width={16} height={16}  />
+                    <FilterIcon width={16} height={16} />
                   </div>
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {data.map((user, idx) => (
-              <tr key={idx}>
-                <td>{user.organization}</td>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
-                <td>{user.phone}</td>
-                <td>{user.dateJoined}</td>
-                <td>
-                  <span
-                    className={`${styles.status} ${
-                      styles[user.status.toLowerCase()]
-                    }`}
-                  >
-                    {user.status}
-                  </span>
-                </td>
-                <td>
-                  <button
-                    ref={(ref) => {
-                      iconRefs.current[idx] = ref;
-                    }}
-                    className={styles.moreBtn}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleToggle(idx);
-                    }}
-                  >
-                    <VerticalDotsIcons width={20} height={20} />
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {data
+              ?.slice(startIndex, endIndex)
+              .map((user: Partial<User>, idx: number) => (
+                <tr key={idx}>
+                  <td>{user.organization}</td>
+                  <td>{user.username}</td>
+                  <td>{user.email}</td>
+                  <td>{user.phoneNumber}</td>
+                  <td>{user.createdAt}</td>
+                  <td>
+                    <span
+                      className={`${styles.status} ${
+                        styles[user?.status?.toLowerCase() ?? ""]
+                      }`}
+                    >
+                      {user.status}
+                    </span>
+                  </td>
+                  <td>
+                    <button
+                      ref={(ref) => {
+                        iconRefs.current[idx] = ref;
+                      }}
+                      className={styles.moreBtn}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleToggle(idx);
+                      }}
+                    >
+                      <VerticalDotsIcons width={20} height={20} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
@@ -130,13 +140,16 @@ function UsersTable({ data }: TableProps) {
             style={{
               position: "absolute",
               top: dropdownPosition.top - 30,
-              left: dropdownPosition.left - 70,
+              left: dropdownPosition.left - 90,
               zIndex: 1000,
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <button className={styles.dropdownItem} 
-            onClick={() => router.push(`/${data[openIndex].username}`)}
+            <button
+              className={styles.dropdownItem}
+              onClick={() =>
+                router.push(`/${data?.slice(startIndex, endIndex)[openIndex]?.id}`)
+              }
             >
               <ViewIcon width={16} height={16} />
               <p>View Details</p>
@@ -157,7 +170,6 @@ function UsersTable({ data }: TableProps) {
         <DropdownPortal>
           <div
             className={styles.filterDropdown}
-            
             onClick={(e) => e.stopPropagation()}
           >
             <Filtercomponent />

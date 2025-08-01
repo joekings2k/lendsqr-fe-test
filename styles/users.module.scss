@@ -147,6 +147,59 @@
       }
     }
   }
+  .pagination {
+    @include flex-between;
+    margin-top: 2rem;
+    padding: 1rem 0;
+    border-top: 1px solid #e5e5e5;
+    .showing {
+      @include flex-center;
+      gap: 0.5rem;
+      select {
+        padding: 0.5rem;
+        @include flex-center;
+        border-radius: 0.5rem;
+        border: none;
+        background: #213F7D1A;
+        color: $mutedColor;
+        cursor: pointer;
+      }
+      span {
+        color: $mutedColor;
+      }
+    }
+    select {
+      padding: 1rem;
+      @include flex-center;
+      border-radius: 0.5rem;
+      border: none;
+      background: #213F7D1A;
+      color: $mutedColor;
+      cursor: pointer;
+    }
+    .pageNumbers {
+      display: flex;
+      gap: 0.5rem;
+      button {
+       
+        border: none;
+        background: transparent;
+        color: $mutedTableColor;
+        cursor: pointer;
+        opacity: 0.6;
+        &.active {
+          background-color: transparent;
+          color: $mutedColor;
+          opacity: 1;
+
+        }
+        &.arrow {
+          background: transparent;
+          color: $mutedColor;
+        }
+      }
+    }
+  } 
 }
 .dropdownMenu {
   background-color: white;

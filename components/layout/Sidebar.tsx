@@ -8,7 +8,6 @@ import { usePathname } from 'next/navigation';
 import { sidebarItems } from '@/constants';
 function Sidebar() {
   const  pathname = usePathname();
-  console.log(pathname);
   return (
     <aside className={styles.sidebar}>
       <div className={styles.top}>

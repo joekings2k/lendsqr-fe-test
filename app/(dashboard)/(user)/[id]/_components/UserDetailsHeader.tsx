@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import React from 'react'
 import styles from '@/styles/userdetails.module.scss';
 
-function UserDetailsHeader() {
+function UserDetailsHeader( ) {
   const router = useRouter()
   return (
     <div className={styles.userdetailsHeader}>
