@@ -11,8 +11,8 @@ function UserDetailsTopBar({ user }: { user: User }) {
         <div className={styles.userMainInfo}>
           <div className={styles.userdetailsIcon}>
             {
-              user.profile.avatar ? (
-                <img src={user.profile.avatar} alt="User Avatar" />
+              user?.profile?.avatar ? (
+                <img src={user?.profile?.avatar} alt="User Avatar" />
               ) : (
                 <UserprofileimgIcon width={28} height={28} />
               )
@@ -39,8 +39,8 @@ function UserDetailsTopBar({ user }: { user: User }) {
         </div>
 
         <div className={styles.accountInfo}>
-          <p className={styles.balance}>{user?.account.balance}</p>
-          <p className={styles.accountNumber}>{user.account.accountNumber} / {user.account.bankName}</p>
+          <p className={styles.balance}>{user?.account?.balance}</p>
+          <p className={styles.accountNumber}>{user?.account?.accountNumber} / {user?.account?.bankName}</p>
         </div>
       </div>
 

@@ -2,17 +2,17 @@ import React from 'react'
 import styles from '@/styles/userdetails.module.scss'
 import { User } from '@/constants/types'
 
-function UserGeneralDetails({ user }: { user: User }) {
+function UserGeneralDetails({ user }: { user:   User }) {
   const userDetailSections = [
     {
       section: "Personal Information",
       data: [
-        { label: "FULL NAME", value: `${user.profile.firstName} ${user.profile.lastName}` },
-        { label: "PHONE NUMBER", value: user.phoneNumber },
-        { label: "EMAIL ADDRESS", value: user.email },
-        { label: "BVN", value: user.profile.bvn },
-        { label: "GENDER", value: user.profile.gender },
-        { label: "ADDRESS", value: user.profile.address },
+        { label: "FULL NAME", value: `${user?.profile?.firstName} ${user?.profile?.lastName}` },
+        { label: "PHONE NUMBER", value: user?.phoneNumber },
+        { label: "EMAIL ADDRESS", value: user?.email },
+        { label: "BVN", value: user?.profile?.bvn },
+        { label: "GENDER", value: user?.profile?.gender },
+        { label: "ADDRESS", value: user?.profile?.address },
       ],
     },
     {

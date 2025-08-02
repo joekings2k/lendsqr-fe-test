@@ -40,11 +40,11 @@ export interface User {
   phoneNumber: string;
   createdAt: string;
   status: "Active" | "Inactive" | "Pending" | "Blacklisted";
-  profile: UserProfile;
-  account: AccountDetails;
-  education: EducationDetails;
-  socials: SocialLinks;
-  guarantor: Guarantor;
+  profile?: UserProfile | null;
+  account?: AccountDetails | null;
+  education?: EducationDetails | null;
+  socials?: SocialLinks | null;
+  guarantor?: Guarantor | null ;
 }
 
 export interface UserProfile {

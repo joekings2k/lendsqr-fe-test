@@ -18,7 +18,7 @@ import {
   UserIcon,
   WhitelistIcon,
 } from "@/assets/svgs";
-import { SidebarItems, UserDetailSection, UserInfo } from "./types";
+import { SidebarItems, User, UserDetailSection, UserInfo } from "./types";
 
 export const sidebarItems: SidebarItems = [
   {
@@ -240,3 +240,49 @@ export const showingOptions = [
   { label: "50", value: 50 },
   { label: "25", value: 25 },
 ];
+
+
+export const mockUser: User = {
+  id: "123",
+  username: "johndoe",
+  email: "john@example.com",
+  phoneNumber: "08012345678",
+  createdAt: "2024-01-01",
+  status: "Active",
+  organization:"Lendsqr",
+
+  profile: {
+    avatar: "https://example.com/avatar.jpg",
+    gender: "Male",
+    firstName: "John",
+    lastName: "Doe",
+    bvn: "12345678901",
+    address: "123, Fake Street",
+    currency: "₦",
+  },
+  account: {
+    balance: "10000",
+    accountNumber: "1234567890",
+    bankName: "GTBank",
+  },
+  education: {
+    level: "B.Sc",
+    employmentStatus: "Employed",
+    sector: "Technology",
+    duration: "2 years",
+    officeEmail: "john@example.com",
+    monthlyIncome: ["10000", "20000"],
+    loanRepayment: "10000",
+  },
+  socials: {
+    twitter: "https://twitter.com/johndoe",
+    facebook: "https://facebook.com/johndoe",
+    instagram: "https://instagram.com/johndoe",
+  },
+  guarantor: {
+    fullName: "Jane Doe",
+    phoneNumber: "08012345673",
+    gender: "Female",
+    address: "123, Fake Street",
+  },
+};

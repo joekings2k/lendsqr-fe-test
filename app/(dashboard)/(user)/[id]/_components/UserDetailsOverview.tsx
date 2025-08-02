@@ -6,7 +6,6 @@ import { useUserDetails } from '@/hooks/useUserDetails';
 
 function UserDetailsOverview({ id }: { id: string }) {
   const { data: user, isLoading, isError } = useUserDetails(id);
-  console.log(user);
 
   if (isLoading) {
     return <div>Loading user details...</div>;

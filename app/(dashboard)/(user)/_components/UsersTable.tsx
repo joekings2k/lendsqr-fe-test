@@ -70,7 +70,7 @@ function UsersTable({ data = [], currentPage, itemsPerPage }: TableProps) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [openIndex]);
-console.log(startIndex, endIndex);
+
   return (
 
     <>
