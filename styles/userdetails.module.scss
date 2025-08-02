@@ -2,6 +2,7 @@
 @use "./mixins.scss" as *;
 
 .userdetails {
+  
   .userdetailsHeader {
     @include flex-column;
     padding: 1rem 0;

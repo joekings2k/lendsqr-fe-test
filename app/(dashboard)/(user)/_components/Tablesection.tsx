@@ -33,7 +33,7 @@ function Tablesection() {
      }, [users]);
 
   return (
-    <div>
+    <div style={{overflowX:"auto"}}>
       <UsersTable data={users} currentPage={currentPage} itemsPerPage={itemsPerPage} />
       <TablePagination
         totalItems={users?.length ?? 0}

@@ -7,8 +7,9 @@ function layout({ children }: { children: React.ReactNode }) {
       <Navbar />
       <div className={styles.dashboardBody}>
         <Sidebar />
+        <div className={styles.dashboardInner}>{children}
 
-        <div className={styles.dashboardInner}>{children}</div>
+        </div>
       </div>
     </div>
   );

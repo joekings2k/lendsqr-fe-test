@@ -140,8 +140,8 @@ function UsersTable({ data = [], currentPage, itemsPerPage }: TableProps) {
             style={{
               position: "absolute",
               top: dropdownPosition.top - 30,
-              left: dropdownPosition.left - 90,
-              zIndex: 1000,
+              left: dropdownPosition.left -100,
+              zIndex: 999,
             }}
             onClick={(e) => e.stopPropagation()}
           >

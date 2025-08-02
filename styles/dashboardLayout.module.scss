@@ -17,6 +17,12 @@
   }
 
   .navbarSearchContainer {
+    @include respond(phone) {
+      display: none;
+    }
+    @include respond(tablet) {
+      display: none;
+    }
       position: relative;
       input {
         border-radius: 0.5rem;
@@ -67,15 +73,23 @@
 
 .dashboardBody {
     @include flex-component;
-     // 80px navbar height
-    
-    
+    background-color: #f5f6fa;
+    min-width: 0;
+    position: relative;
   }
 
   .dashboardInner {
-    flex: 1;
+    width:calc(100% - 250px);
     background-color: #f5f6fa;
     padding: 2rem;
+    z-index: 1;
+    @include respond(phone) {
+      width: calc(100% - 20px);
+      padding: 0.5rem;
+    }
+    @include respond(tablet) {
+      width: calc(100% - 90px);
+    }
   }
 
 }
