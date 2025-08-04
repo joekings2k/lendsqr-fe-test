@@ -1,4 +1,4 @@
-import { ArrowDownIcon } from "@/assets/svgs";
+import { ArrowDownIcon, DropdownIcon } from "@/assets/svgs";
 import { useState, useRef, useEffect } from "react";
 
 
@@ -39,7 +39,7 @@ export  function CustomSelect({
   }, []);
 
   console.log(selected);
-// show the selected item
+
   return (
     <div className="dropdown" ref={dropdownRef}>
       <label>{label}</label>
@@ -47,11 +47,11 @@ export  function CustomSelect({
       <button
         type="button"
         onClick={toggleDropdown}
-        className={`${"toggle"} ${!selected ? "placeholder" : ""}`}
+        className={`${"toggle"} ${!selected ? "placeholder" : "selected"}`}
       >
         {selected || label}
         <span className="arrow">
-          <ArrowDownIcon width={10} height={6} />
+          <DropdownIcon width={10} height={6} fill="#545F7D" />
         </span>
       </button>
       {open && (

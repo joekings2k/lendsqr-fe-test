@@ -1,7 +1,6 @@
 @use "./variables.scss" as *;
 @use "./mixins.scss" as *;
 .userpage {
-    
   h1 {
     font-size: 1.5rem;
   }
@@ -65,6 +64,7 @@
     }
   }
   .tableWrapper {
+    position: relative;
     margin-top: 2.5rem;
     width: 100%;
     overflow-x: auto;
@@ -160,7 +160,7 @@
         @include flex-center;
         border-radius: 0.5rem;
         border: none;
-        background: #213F7D1A;
+        background: #213f7d1a;
         color: $mutedColor;
         cursor: pointer;
       }
@@ -173,7 +173,7 @@
       @include flex-center;
       border-radius: 0.5rem;
       border: none;
-      background: #213F7D1A;
+      background: #213f7d1a;
       color: $mutedColor;
       cursor: pointer;
     }
@@ -181,7 +181,6 @@
       display: flex;
       gap: 0.5rem;
       button {
-       
         border: none;
         background: transparent;
         color: $mutedTableColor;
@@ -191,7 +190,6 @@
           background-color: transparent;
           color: $mutedColor;
           opacity: 1;
-
         }
         &.arrow {
           background: transparent;
@@ -199,7 +197,7 @@
         }
       }
     }
-  } 
+  }
 }
 .dropdownMenu {
   background-color: white;
@@ -228,16 +226,24 @@
   }
 }
 .filterDropdown {
+  @include respond(tablet) {
+    left: 10rem;
+    top: 36rem;
+  }
+
+  @include respond(phone) {
+    left: 9rem;
+    top: 62rem;
+  }
   background-color: $background;
   border: 1px solid #e5e5e5;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   z-index: 1000;
   position: absolute;
-  top: 27.6rem;
+  top: 23.5rem;
   left: 17.5rem;
   padding: 1rem;
-
   width: 270px;
   display: flex;
   flex-direction: column;
@@ -245,16 +251,32 @@
   .filterDropdownContainer {
     @include flex-column;
     gap: 1rem;
-    .filterButtonContainer{
+    input {
+      border-radius: 0.5rem;
+      height: 2.5rem;
+      color: $mutedColor;
+      font-weight: 500;
+      border: 1px solid #ccc;
+
+      &:hover {
+      border-color: #999;
+    }
+    }
+    .filterButtonContainer {
       @include flex-between;
       gap: 0.5rem;
-      .resetButton{
+      button {
+         @include flex-center;
+        border-radius: 0.5rem;
+        height: 2.5rem;
+        font-weight: 500;
+        width: 100%;
+      }
+      .resetButton { 
         background: #fff;
         color: $mutedColor;
-        border: 2px solid $mutedColor
+        border: 1px solid $mutedColor;
       }
-      
     }
   }
 }
-

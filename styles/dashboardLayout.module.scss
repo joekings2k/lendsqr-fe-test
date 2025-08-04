@@ -3,26 +3,26 @@
 
 .dashboardLayout {
   .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px;
-  padding: 0 2rem;
-  background-color: #fff;
-  border-bottom: 1px solid #e5e5e5;
-
-  .logoSection {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-  }
+    height: 80px;
+    padding: 0 2rem;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
 
-  .navbarSearchContainer {
-    @include respond(phone) {
-      display: none;
+    .logoSection {
+      display: flex;
+      align-items: center;
     }
-    @include respond(tablet) {
-      display: none;
-    }
+
+    .navbarSearchContainer {
+      @include respond(phone) {
+        display: none;
+      }
+      @include respond(tablet) {
+        display: none;
+      }
       position: relative;
       input {
         border-radius: 0.5rem;
@@ -42,36 +42,36 @@
       }
     }
 
-  .profileSection {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-
-    a {
-      color: #213f7d;
-      font-weight: 500;
-      text-decoration: none;
-    }
-
-    img {
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    .user {
+    .profileSection {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 1.5rem;
 
-      span {
-        font-weight: 600;
+      a {
         color: #213f7d;
+        font-weight: 500;
+        text-decoration: none;
+      }
+
+      img {
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        span {
+          font-weight: 600;
+          color: #213f7d;
+        }
       }
     }
   }
-}
 
-.dashboardBody {
+  .dashboardBody {
     @include flex-component;
     background-color: #f5f6fa;
     min-width: 0;
@@ -79,7 +79,7 @@
   }
 
   .dashboardInner {
-    width:calc(100% - 250px);
+    width: calc(100% - 250px);
     background-color: #f5f6fa;
     padding: 2rem;
     z-index: 1;
@@ -91,5 +91,4 @@
       width: calc(100% - 90px);
     }
   }
-
 }

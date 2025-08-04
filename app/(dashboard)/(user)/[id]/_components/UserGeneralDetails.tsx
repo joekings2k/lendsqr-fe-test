@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '@/styles/userdetails.module.scss'
 import { User } from '@/constants/types'
+import Separator from '@/components/layout/Separator';
 
 function UserGeneralDetails({ user }: { user:   User }) {
   const userDetailSections = [
@@ -52,16 +53,18 @@ function UserGeneralDetails({ user }: { user:   User }) {
           <h2>{section.section}</h2>
           <div className={styles.userdetailsGeneralDetailsContainer}>
             {section.data.map((item, index) => (
-              <div key={index}>
-                <p>{item.label}</p>
-                <p>{item.value}</p>
-              </div>
+                <div key={index}>
+                  <p>{item.label}</p>
+                  <p>{item.value}</p>
+                </div>
             ))}
           </div>
+          {index !== userDetailSections.length - 1 && (
+          <Separator /> )}
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 export default UserGeneralDetails

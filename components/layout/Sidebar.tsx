@@ -3,13 +3,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 import styles from '@/styles/sidebar.module.scss';
-import { Breifcase, DropdownIcon, HomeIcon } from '@/assets/svgs';
+import { BackIcon, Breifcase, DropdownIcon, HomeIcon, MenuIcon } from '@/assets/svgs';
 import { usePathname } from 'next/navigation';
 import { sidebarItems } from '@/constants';
 function Sidebar() {
   const  pathname = usePathname();
+
+  //optional set width of sidebar to 0 if a button is cliked
+  
   return (
-    <aside className={styles.sidebar}>
+    <aside className={styles.sidebar} >
+      
       <div className={styles.top}>
         <button className={styles.switchOrg}>
           <Breifcase width={16} height={16} />

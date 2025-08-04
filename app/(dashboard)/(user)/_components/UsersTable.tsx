@@ -13,7 +13,6 @@ import DropdownPortal from "@/components/portal/DropdownPortal";
 import { tableHeaders } from "@/constants";
 import Filtercomponent from "./Filtercomponet";
 import { useRouter } from "next/navigation";
-import { useQuery } from "@tanstack/react-query";
 
 interface TableProps {
   data?: Partial<User>[];
@@ -72,7 +71,6 @@ function UsersTable({ data = [], currentPage, itemsPerPage }: TableProps) {
   }, [openIndex]);
 
   return (
-
     <>
       <div className={styles.tableWrapper}>
         <table className={styles.table}>
@@ -130,6 +128,16 @@ function UsersTable({ data = [], currentPage, itemsPerPage }: TableProps) {
                 </tr>
               ))}
           </tbody>
+          {isFilterOpen && (
+            <DropdownPortal>
+              <div
+                className={styles.filterDropdown}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Filtercomponent />
+              </div>
+            </DropdownPortal>
+          )}
         </table>
       </div>
       {openIndex !== null && (
@@ -139,8 +147,8 @@ function UsersTable({ data = [], currentPage, itemsPerPage }: TableProps) {
             className={styles.dropdownMenu}
             style={{
               position: "absolute",
-              top: dropdownPosition.top - 30,
-              left: dropdownPosition.left -100,
+              top: dropdownPosition.top - 90,
+              left: dropdownPosition.left - 100,
               zIndex: 999,
             }}
             onClick={(e) => e.stopPropagation()}
@@ -148,7 +156,9 @@ function UsersTable({ data = [], currentPage, itemsPerPage }: TableProps) {
             <button
               className={styles.dropdownItem}
               onClick={() =>
-                router.push(`/${data?.slice(startIndex, endIndex)[openIndex]?.id}`)
+                router.push(
+                  `/${data?.slice(startIndex, endIndex)[openIndex]?.id}`
+                )
               }
             >
               <ViewIcon width={16} height={16} />
@@ -166,7 +176,7 @@ function UsersTable({ data = [], currentPage, itemsPerPage }: TableProps) {
         </DropdownPortal>
       )}
 
-      {isFilterOpen && (
+      {/* {isFilterOpen && (
         <DropdownPortal>
           <div
             className={styles.filterDropdown}
@@ -175,7 +185,7 @@ function UsersTable({ data = [], currentPage, itemsPerPage }: TableProps) {
             <Filtercomponent />
           </div>
         </DropdownPortal>
-      )}
+      )} */}
     </>
   );
 }

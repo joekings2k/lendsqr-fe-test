@@ -1,4 +1,4 @@
-import { UserprofileimgIcon } from '@/assets/svgs'
+import { EmptyStarIcon, FilledStarIcon, UserprofileimgIcon } from '@/assets/svgs'
 import React from 'react'
 import styles from '@/styles/userdetails.module.scss'
 import { User } from '@/constants/types'
@@ -7,7 +7,7 @@ import { getUserFullName } from '@/helper'
 function UserDetailsTopBar({ user }: { user: User }) {
   return (
     <div className={styles.userdetailsTopBar}>
-      <div className={styles.userDetailsTopBarContainer}>
+      <div className={styles.   userDetailsTopBarContainer}>
         <div className={styles.userMainInfo}>
           <div className={styles.userdetailsIcon}>
             {
@@ -29,12 +29,11 @@ function UserDetailsTopBar({ user }: { user: User }) {
         <div className={styles.userTier}>
           <p>User’s Tier</p>
           <div className={styles.stars}>
-            {/* {Array.from({ length: user.profile.}, (_, index) => (
-              <span key={index}>⭐</span>
-            ))} */}
-            <span>⭐</span>
-            <span>⭐</span>
-            <span>☆</span>
+           
+            <FilledStarIcon />
+            <EmptyStarIcon />
+            <EmptyStarIcon />
+
           </div>
         </div>
 

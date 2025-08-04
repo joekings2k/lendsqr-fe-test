@@ -2,6 +2,18 @@
 @use "./mixins.scss" as *;
 
 .sidebar {
+ 
+  @include respond(tablet) {
+    width: 100px;
+    transition: width 0.2s ease;
+  }
+   @include respond(phone) {
+    width: 90px;
+    transition: width 0.2s ease;
+    
+  }
+
+
   width: 250px;
   background-color: #fff;
   height: calc(100vh - 80px);
@@ -106,12 +118,5 @@
 
   //widht on sllllllmaller screens
   // animate the shrink
-  @include respond(phone) {
-    width: 90px;
-    transition: width 0.2s ease;
-  }
-  @include respond(tablet) {
-    width: 150px;
-    transition: width 0.2s ease;
-  }
+  
 }

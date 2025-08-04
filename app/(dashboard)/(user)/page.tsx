@@ -7,6 +7,7 @@ function HomePage() {
   return (
     <div className={styles.userpage}>
       <h1>Users</h1>
+      
       <CardsSection />
 
       <Tablesection />

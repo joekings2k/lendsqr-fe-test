@@ -1,5 +1,7 @@
 
 
+@import "./variables.scss";
+
 .datePickerWrapper {
   width: 100%;
 
@@ -7,7 +9,7 @@
     display: block;
     font-size: 0.875rem;
     font-weight: 500;
-    color: #4b5563; // Gray-700
+    color: $mutedColor;
     margin-bottom: 0.25rem;
   }
 
@@ -18,16 +20,12 @@
       width: 100%;
       padding: 0.5rem 2.5rem 0.5rem 1rem;
       font-size: 0.875rem;
-      color: #374151; // Gray-800
-      border: 1px solid #d1d5db; // Gray-300
+      color: $mutedColor;
+      border: 1px solid #d1d5db;
       border-radius: 0.5rem;
       outline: none;
       transition: 0.2s ease border;
-
-      &:focus {
-        border-color: #2563eb; // Blue-600
-        box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
-      }
+      
 
       &::placeholder {
         color: #9ca3af; // Gray-400

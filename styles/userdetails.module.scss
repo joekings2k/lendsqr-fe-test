@@ -18,7 +18,13 @@
       }
     }
     .userdetailsHeaderBottom {
+      
+      @include respond(phone) {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
       @include flex-between;
+      margin-top: 2rem;
       gap: 1rem;
       h1 {
         font-size: 1.5rem;
@@ -26,6 +32,7 @@
         color: $secondaryColor;
       }
       .userdetailsHeaderBottomButtons {
+
         @include flex-center;
         gap: 1rem;
         button {
@@ -49,10 +56,14 @@
     background-color: $background;
     padding: 2rem 2rem 0.3rem 2rem;
     border-radius: 0.5rem;
-
+    overflow-x: auto;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+
+    @include respond(phone) {
+      padding: 2rem 0.5rem 0.3rem 0.5rem;
+    }
 
     .userDetailsTopBarContainer {
       @include flex-y-center;
@@ -134,6 +145,7 @@
       justify-content: space-between;
       border-top: 1px solid #ddd;
       padding-top: 1rem;
+      width: 100%;
       span {
         font-size: 0.875rem;
         color: $textSecondary;
@@ -144,7 +156,6 @@
           color: $primaryColor;
 
           &::after {
-            //center the line
             content: "";
             position: absolute;
             bottom: -0.25rem;
@@ -174,6 +185,13 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 2rem;
+      margin-bottom: 2rem;
+      @include respond(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include respond(phone) {
+        grid-template-columns: 1fr;
+      }
       div {
         display: flex;
         flex-direction: column;
@@ -185,7 +203,8 @@
         }
         p:last-child {
           font-size: 0.875rem;
-          color: $textPrimary;
+          color: $textSecondary;
+          font-weight: 500;
           margin: 0;
         }
       }

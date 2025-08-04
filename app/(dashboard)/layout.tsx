@@ -6,10 +6,10 @@ function layout({ children }: { children: React.ReactNode }) {
     <div className={styles.dashboardLayout}>
       <Navbar />
       <div className={styles.dashboardBody}>
-        <Sidebar />
-        <div className={styles.dashboardInner}>{children}
-
+        <div>
+          <Sidebar />
         </div>
+        <div className={styles.dashboardInner}>{children}</div>
       </div>
     </div>
   );

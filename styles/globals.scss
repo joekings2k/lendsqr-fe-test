@@ -45,29 +45,39 @@ body {
     cursor: pointer;
   }
 }
+label {
+  color: $mutedColor;
+  font-weight: 500;
+}
+
 
 .dropdown {
   position: relative;
   width: 100%;
   @include flex-column;
-  gap: 0.5rem;
+  gap: 0.3rem;
 
   .toggle {
     width: 100%;
+    height: 2.5rem;
     padding: 0.75rem 1rem;
-    background-color: #fff;
+    color: $mutedColor;
+    background-color: $background;
     border: 1px solid #ccc;
-    font-size: 0.9rem;
-    border-radius: 6px;
+    font-weight: 500;
+    border-radius: 0.5rem;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: border-color 0.2s ease;
-    color: $secondaryColor;
+
     &.placeholder {
       color: #aaa;
     }
+    &.selected {
+      color: $mutedColor
+    } 
 
     &:hover {
       border-color: #999;
@@ -111,4 +121,11 @@ body {
   }
 }
 
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: #e5e5f0;
+  border: none;
+}
 
