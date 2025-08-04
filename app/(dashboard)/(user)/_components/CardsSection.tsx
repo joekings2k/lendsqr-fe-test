@@ -4,8 +4,6 @@ import {
 
   ActiveUsersIcon,
   DashUsers,
-  LoansIcon,
-  SavingsIcon,
   UserLoansIcon,
   UserSavingsIcon,
 } from "@/assets/svgs";

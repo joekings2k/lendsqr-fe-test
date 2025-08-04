@@ -175,17 +175,6 @@ function UsersTable({ data = [], currentPage, itemsPerPage }: TableProps) {
           </div>
         </DropdownPortal>
       )}
-
-      {/* {isFilterOpen && (
-        <DropdownPortal>
-          <div
-            className={styles.filterDropdown}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Filtercomponent />
-          </div>
-        </DropdownPortal>
-      )} */}
     </>
   );
 }
